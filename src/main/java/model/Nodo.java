@@ -2,29 +2,24 @@ package model;
 
 public class Nodo {
     private double value;
-    private String nnnnn;
+    private String name;
     private Nodo next;
-    private Nodo prev;
-    public Nodo(double value, String nnnnn) {
+
+    public Nodo(double value, String name) {
         this.value = value;
-        this.nnnnn = nnnnn;
+        this.name = name;
         next = null;
-        prev = null;
     }
 
     public double getValue() {return value;}
 
-    public String getNnnnn() {return nnnnn;}
+    public String getName() {return name;}
 
     public Nodo getNext() {return next;}
 
-    public Nodo getPrev() {return prev;}
-
     public void setValue(double value) {this.value = value;}
 
-    public void setNnnnn(String nnnnn) {this.nnnnn = nnnnn;}
+    public void setName(String name) {this.name = name;}
 
     public void setNext(Nodo next) {this.next = next;}
-
-    public void setPrev(Nodo prev) {this.prev = prev;}
 }

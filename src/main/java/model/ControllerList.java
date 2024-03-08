@@ -8,9 +8,9 @@ public class ControllerList {
     }
 
     // AÑADIR NODOS (LISTA SIMPLE):
-    public void addNodos1(double value, String nnnnn) {
+    public void addNodos(double value, String name) {
 
-        Nodo newNodo = new Nodo(value, nnnnn);
+        Nodo newNodo = new Nodo(value, name);
 
         if (firstNode == null) {
             firstNode = newNodo;
