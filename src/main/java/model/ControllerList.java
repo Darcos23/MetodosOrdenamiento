@@ -84,4 +84,36 @@ public class ControllerList {
             }
         }
     }
+
+    // INSERCIÓN:
+    public void ordenamientoInsercion() {
+        if (firstNode != null && firstNode.getNext() != null) {
+            Nodo current = firstNode.getNext();
+            Nodo prev, temp;
+            while (current != null) {
+                prev = firstNode;
+                temp = null;
+                while (prev != current && prev.getValue() <= current.getValue()) {
+                    temp = prev;
+                    prev = prev.getNext();
+                }
+                if (prev != current) {
+                    if (temp != null) {
+                        temp.setNext(current);
+                    }
+                    Nodo next = current.getNext();
+                    current.setNext(prev);
+                    while (prev.getNext() != current) {
+                        prev = prev.getNext();
+                    }
+                    prev.setNext(next);
+                    if (temp == null) {
+                        firstNode = current;
+                    }
+                }
+                current = current.getNext();
+            }
+        }
+    }
+
 }

@@ -24,10 +24,39 @@ public class ControllerListTest {
 
     @Test
     public void testOrdenamientoSeleccion() throws Exception {
+        long t1 = System.nanoTime();
         controller.ordenamientoSeleccion();
-        String expectedText = controller.toStringList();
+        long t2 = System.nanoTime();
+        long latency = (t2-t1);
+        System.out.println("Selection latency: " + latency + "ns");
 
+        String expectedText = controller.toStringList();
         Assert.assertEquals("-6.0, -1.0, 2.0, 2.0, 5.0, 9.0, 13.0, 13.0, 17.0, 20.0", expectedText);
 
     }
+
+    @Test
+    public void testOrdenamientoInsercion() throws Exception {
+        long t1 = System.nanoTime();
+        controller.ordenamientoInsercion();
+        long t2 = System.nanoTime();
+        long latency = (t2-t1);
+        System.out.println("Insertion latency: " + latency + "ns");
+
+        String expectedText = controller.toStringList();
+        Assert.assertEquals("-6.0, -1.0, 2.0, 2.0, 5.0, 9.0, 13.0, 13.0, 17.0, 20.0", expectedText);
+    }
+
+    @Test
+    public void testOrdenamientoBurbuja() throws Exception {
+        long t1 = System.nanoTime();
+        controller.ordenamientoBurbuja();
+        long t2 = System.nanoTime();
+        long latency = (t2-t1);
+        System.out.println("Bubble latency: " + latency + "ns");
+
+        String expectedText = controller.toStringList();
+        Assert.assertEquals("-6.0, -1.0, 2.0, 2.0, 5.0, 9.0, 13.0, 13.0, 17.0, 20.0", expectedText);
+    }
+
 }
