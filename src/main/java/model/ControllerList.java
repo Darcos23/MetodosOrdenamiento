@@ -116,4 +116,42 @@ public class ControllerList {
         }
     }
 
+    //BURBUJA
+    public void ordenamientoBurbuja() {
+        if (firstNode != null && firstNode.getNext() != null) {
+            boolean swapped = true;
+            Nodo temp;
+            Nodo endNode = null;
+
+            while (swapped) {
+                swapped = false;
+                Nodo current = firstNode;
+                Nodo prev = null;
+
+                while (current.getNext() != endNode) {
+                    if (current.getValue() > current.getNext().getValue()) {
+                        if (prev == null) {
+                            temp = firstNode;
+                            firstNode = firstNode.getNext();
+                            temp.setNext(firstNode.getNext());
+                            firstNode.setNext(temp);
+                            prev = firstNode;
+                        } else {
+                            temp = current.getNext();
+                            current.setNext(temp.getNext());
+                            temp.setNext(current);
+                            prev.setNext(temp);
+                            prev = temp;
+                        }
+                        swapped = true;
+                    } else {
+                        prev = current;
+                        current = current.getNext();
+                    }
+                }
+                endNode = current;
+            }
+        }
+    }
+
 }
